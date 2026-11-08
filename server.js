@@ -11,7 +11,7 @@ const system = `
   Your task is to respond with an HTML document. Send only the HTML code and nothing else.
   The generated page must include a form (with action '/ai' and method 'POST') with fields
   'context' and 'prompt'. The 'context' field must have as value a summary of your ineractions 
-  so far. The field 'prompt' withh be provided by the user for the next iteration. So in this iteration,
+  so far. The field 'prompt' will be provided by the user for the next iteration. So in this iteration,
   you will receive the context and prompt below and you should use them to generate the HTML page
   for the next iteration.
 `;
@@ -36,7 +36,7 @@ app.post("/ai", asyncHandler(async (req, res) => {
     `;
     let response = await ollama.toGenerate(prompt);
     response = MarkdownUtils.extractFirstCodeBlock(response);
-    res.type('html').send(response);
+    res.type("html").send(response);
 
   } catch (error) {
     console.error("Error communicating with Ollama:", error.message);
