@@ -22,7 +22,6 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(path.dirname(url.fileURLToPath(import.meta.url)), "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -35,7 +34,7 @@ app.post("/ai", asyncHandler(async (req, res) => {
       # Prompt
       ${ req.body.prompt }
     `;
-    const response = await ollamatoGenerate(prompt);
+    let response = await ollama.toGenerate(prompt);
     response = MarkdownUtils.extractFirstCodeBlock(response);
     res.type('html').send(response);
 
@@ -48,6 +47,10 @@ app.post("/ai", asyncHandler(async (req, res) => {
   }
 }));
 
-app.listen(PORT, () => {
-  console.log(`AIPager running on http://localhost:${PORT}`);
+app.use(express.static(path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "public")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "public", "index.html"));
 });
+
+app.listen(PORT);

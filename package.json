@@ -1,10 +1,11 @@
 {
   "name": "@ghasemkiani/aipager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "start": "node server.js"
   },
   "keywords": [],
   "type": "module",
