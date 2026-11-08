@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Sender</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+        .field { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: .5rem; font-weight: bold; }
+        input, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        textarea { height: 100px; }
+        button { padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Send Prompt</h2>
+    <form action="/ai" method="POST">
+        <input type="hidden" id="context" name="context" value="Starting the context."/>
+
+        <div class="field">
+            <label for="prompt">Your Prompt:</label>
+            <textarea id="prompt" name="prompt" required placeholder="Enter your request here..."></textarea>
+        </div>
+
+        <button type="submit">Send Prompt</button>
+    </form>
+
+</body>
+</html>

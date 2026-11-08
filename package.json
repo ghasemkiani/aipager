@@ -1,0 +1,20 @@
+{
+  "name": "@ghasemkiani/aipager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "Ghasem Kiani",
+  "license": "MIT",
+  "dependencies": {
+    "@ghasemkiani/base": "github:ghasemkiani/base",
+    "@ghasemkiani/markdown": "github:ghasemkiani/markdown",
+    "@ghasemkiani/ollama": "github:ghasemkiani/ollama",
+    "express": "^5.3.0",
+    "express-async-handler": "^1.2.0"
+  }
+}
